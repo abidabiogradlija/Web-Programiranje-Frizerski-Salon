@@ -1,5 +1,3 @@
-"use client"
-
 import type React from "react"
 
 import { useState } from "react"
@@ -10,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from "lucide-react"
-import Link from "next/link"
 
 export default function KontaktPage() {
   const { toast } = useToast()
@@ -82,7 +79,7 @@ export default function KontaktPage() {
                   <div>
                     <h3 className="mb-1 font-medium">Adresa</h3>
                     <p className="text-pretty text-sm text-muted-foreground">
-                       Branitelja domovine, Busovača
+                      Branitelja domovine, Busovača
                       <br />
                       72260 Busovača, BiH
                     </p>
@@ -120,7 +117,7 @@ export default function KontaktPage() {
             <Card className="p-8">
               <h2 className="mb-6 text-2xl font-medium">Pratite nas</h2>
               <div className="flex gap-4">
-                <Link
+                <a
                   href="https://www.instagram.com/adore.hairsalon/?hl=hr"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -128,8 +125,8 @@ export default function KontaktPage() {
                 >
                   <Instagram className="h-5 w-5" />
                   <span className="text-sm">@adoresalon</span>
-                </Link>
-                <Link
+                </a>
+                <a
                   href="https://www.facebook.com/adore.hairsalon1/?locale=hr_HR"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -137,7 +134,7 @@ export default function KontaktPage() {
                 >
                   <Facebook className="h-5 w-5" />
                   <span className="text-sm">ADORE Salon</span>
-                </Link>
+                </a>
               </div>
             </Card>
           </div>

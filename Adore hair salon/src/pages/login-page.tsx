@@ -1,9 +1,7 @@
-"use client"
-
 import type React from "react"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useNavigate } from "react-router-dom"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -12,7 +10,7 @@ import { useToast } from "@/hooks/use-toast"
 import { Lock } from "lucide-react"
 
 export default function LoginPage() {
-  const router = useRouter()
+  const navigate = useNavigate()
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -38,7 +36,7 @@ export default function LoginPage() {
           title: "Uspješna prijava",
           description: `Dobrodošli, ${data.user.username}!`,
         })
-        router.push("/admin")
+        navigate("/admin")
       } else {
         toast({
           title: "Greška",
@@ -61,7 +59,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-muted/30 px-6 py-16">
       <Card className="w-full max-w-md p-8">
         <div className="mb-4">
-          <Button type="button" variant="ghost" onClick={() => router.back()} disabled={loading}>
+          <Button type="button" variant="ghost" onClick={() => navigate(-1)} disabled={loading}>
             Nazad
           </Button>
         </div>
