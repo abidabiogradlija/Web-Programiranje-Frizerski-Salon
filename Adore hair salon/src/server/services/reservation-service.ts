@@ -1,4 +1,4 @@
-import pool from "@/utils/db"
+import pool from "../../../utils/db"
 import type { Reservation } from "../models/reservation"
 
 // Service sloj: sav rad sa bazom za reservations.
@@ -63,4 +63,3 @@ export class ReservationService {
     return { success: true }
   }
 }
-

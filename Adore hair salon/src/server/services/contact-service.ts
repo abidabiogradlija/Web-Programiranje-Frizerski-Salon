@@ -1,4 +1,4 @@
-import pool from "@/utils/db"
+import pool from "../../../utils/db"
 import type { ContactMessage } from "../models/contact-message"
 
 // Service sloj: sav rad sa bazom za contact_messages.
@@ -37,4 +37,3 @@ export class ContactService {
     return { success: true }
   }
 }
-

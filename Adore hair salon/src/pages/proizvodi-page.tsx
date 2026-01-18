@@ -1,6 +1,3 @@
-"use client"
-
-import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -80,7 +77,7 @@ const productPages = [
       name: "Kérastase Discipline Keratine",
       description: "Tretman sa keratinom",
       price: "90 KM",
-      image: "slika12.jpg",
+      image: "/slika12.jpg",
     },
     {
       name: "Kérastase Specifique Bain Prevention",
@@ -131,18 +128,14 @@ export default function ProizvodiPage() {
           <h1 className="text-center text-5xl font-light tracking-wide">PROIZVODI</h1>
         </div>
 
-
-
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-3">
             {productPages[currentPage].map((product, i) => (
               <Card key={i} className="overflow-hidden">
                 <div className="aspect-square bg-muted">
-                  <Image
+                  <img
                     src={product.image || "/placeholder.svg?height=300&width=300"}
                     alt={product.name}
-                    width={300}
-                    height={300}
                     className="h-full w-full object-cover"
                   />
                 </div>

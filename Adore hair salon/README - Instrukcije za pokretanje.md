@@ -5,5 +5,6 @@
    ```
    npm install
    npm run dev
+   ```
 
-Aplikacija se pokreće na `http://localhost:3000`
+Aplikacija se pokreće na `http://localhost:5173`, a API server na `http://localhost:3000`.

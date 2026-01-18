@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { Card } from "@/components/ui/card"
 
 export default function HomePage() {
@@ -29,12 +28,10 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       <section className="relative h-[600px] overflow-hidden bg-muted">
-        <Image
+        <img
           src="/pozadina5.jpg"
           alt="ADORE Salon Team"
-          fill
-          className="object-cover opacity-40"
-          priority
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
           <h1 className="mb-8 max-w-4xl text-balance px-6 text-5xl font-light leading-tight tracking-wide text-foreground md:text-6xl">
@@ -57,38 +54,20 @@ export default function HomePage() {
           <h2 className="mb-12 text-center text-4xl font-light tracking-wide">NAŠ TIM</h2>
           <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-3">
             <div className="flex justify-center">
-              <Image
-                  src="/owner2.jpg"
-                  alt="ADORE Team"
-                  width={350}
-                  height={400}
-                  className="rounded-lg object-cover"
-              />
+              <img src="/owner2.jpg" alt="ADORE Team" className="h-[400px] w-[350px] rounded-lg object-cover" />
             </div>
 
             {teamMembers.map((member, i) => (
-                <Card key={i} className="flex flex-col items-center p-8 text-center">
-                  <div className="mb-4 h-32 w-32 overflow-hidden rounded-full">
-                    <Image
-                        src="/owner.jpg"
-                        alt={member.name}
-                        width={128}
-                        height={128}
-                        className="object-cover"
-                    />
-                  </div>
-                  <h3 className="mb-3 text-xl font-medium">{member.name}</h3>
-                  <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
-                </Card>
+              <Card key={i} className="flex flex-col items-center p-8 text-center">
+                <div className="mb-4 h-32 w-32 overflow-hidden rounded-full">
+                  <img src="/owner.jpg" alt={member.name} className="h-full w-full object-cover" />
+                </div>
+                <h3 className="mb-3 text-xl font-medium">{member.name}</h3>
+                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
+              </Card>
             ))}
             <div className="flex justify-center">
-              <Image
-                  src="/tim.jpg"
-                  alt="ADORE Team"
-                  width={350}
-                  height={400}
-                  className="rounded-lg object-cover"
-              />
+              <img src="/tim.jpg" alt="ADORE Team" className="h-[400px] w-[350px] rounded-lg object-cover" />
             </div>
           </div>
         </div>
@@ -100,13 +79,7 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             {galleryImages.map((img, i) => (
               <div key={i} className="overflow-hidden rounded-lg">
-                <Image
-                  src={img.src || "/placeholder.svg"}
-                  alt={img.alt}
-                  width={400}
-                  height={300}
-                  className="h-full w-full object-cover"
-                />
+                <img src={img.src || "/placeholder.svg"} alt={img.alt} className="h-full w-full object-cover" />
               </div>
             ))}
           </div>
@@ -119,11 +92,9 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-3">
             {hairstyleImages.map((src, i) => (
               <div key={i} className="overflow-hidden rounded-lg">
-                <Image
+                <img
                   src={src || "/placeholder.svg"}
                   alt={`Hairstyle ${i + 1}`}
-                  width={300}
-                  height={300}
                   className="h-full w-full object-cover transition-transform hover:scale-105"
                 />
               </div>

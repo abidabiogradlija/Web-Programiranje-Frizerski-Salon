@@ -1,11 +1,8 @@
-"use client"
-
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { Link, useLocation } from "react-router-dom"
 import { User } from "lucide-react"
 
 export function Navigation() {
-  const pathname = usePathname()
+  const { pathname } = useLocation()
 
   if (pathname?.startsWith("/admin") || pathname === "/login") {
     return null
@@ -28,7 +25,7 @@ export function Navigation() {
           {links.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className={`text-sm font-medium tracking-wider transition-colors hover:text-foreground ${
                 pathname === link.href ? "text-foreground" : "text-muted-foreground"
               }`}
@@ -38,7 +35,7 @@ export function Navigation() {
           ))}
         </div>
 
-        <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+        <Link to="/" className="absolute left-1/2 -translate-x-1/2">
           <span className="font-serif text-3xl font-light tracking-[0.2em]">adore</span>
         </Link>
 
@@ -46,7 +43,7 @@ export function Navigation() {
           {rightLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className={`text-sm font-medium tracking-wider transition-colors hover:text-foreground ${
                 pathname === link.href ? "text-foreground" : "text-muted-foreground"
               }`}

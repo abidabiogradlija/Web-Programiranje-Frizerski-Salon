@@ -1,23 +1,20 @@
-"use client"
-
 import type React from "react"
 
 import { useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "@/utils/use-auth"
 import { Button } from "@/components/ui/button"
 import { LogOut, Home } from "lucide-react"
-import Link from "next/link"
 
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const { user, loading, logout } = useAuth()
-  const router = useRouter()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push("/login")
+      navigate("/login")
     }
-  }, [user, loading, router])
+  }, [user, loading, navigate])
 
   if (loading) {
     return (
@@ -44,7 +41,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">Prijavljeni kao: {user.username}</span>
             <Button variant="outline" size="sm" asChild>
-              <Link href="/">
+              <Link to="/">
                 <Home className="mr-2 h-4 w-4" />
                 Početna
               </Link>

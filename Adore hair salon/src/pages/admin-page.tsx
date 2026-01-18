@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { Card } from "@/components/ui/card"
 import { MessageSquare, Calendar } from "lucide-react"
 
@@ -8,7 +8,7 @@ export default function AdminPage() {
       <h1 className="mb-8 text-4xl font-light tracking-wide">Admin Panel</h1>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <Link href="/admin/poruke">
+        <Link to="/admin/poruke">
           <Card className="p-8 transition-all hover:shadow-lg">
             <div className="flex items-center gap-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
@@ -22,7 +22,7 @@ export default function AdminPage() {
           </Card>
         </Link>
 
-        <Link href="/admin/rezervacije">
+        <Link to="/admin/rezervacije">
           <Card className="p-8 transition-all hover:shadow-lg">
             <div className="flex items-center gap-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
